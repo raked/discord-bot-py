@@ -22,7 +22,7 @@ async def on_message(message):
     if message.content.startswith('$cornbarge'):
         i = 10
         while i > 0:
-            await message.channel.send('Wake up ' + message.author)
+            await message.channel.send('Wake up ' + str(message.author))
             i = i - 1
         
 
