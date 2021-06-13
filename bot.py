@@ -19,4 +19,11 @@ async def on_message(message):
     if message.content.startswith('$hello'):
         await message.channel.send('Hello!')
 
+    if message.content.startswith('$cornbarge'):
+        i = 10
+        while i > 0:
+            await message.channel.send('Wake up ' + message.author)
+            i = i - 1
+        
+
 client.run(TOKEN)
