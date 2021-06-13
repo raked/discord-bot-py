@@ -3,7 +3,7 @@ import random
 from dotenv import load_dotenv
 import os
 
-client = discord.Client()
+client = discord.Client(intents=discord.Intents().all())
 prefix = '$'
 
 load_dotenv()
@@ -28,8 +28,8 @@ async def on_message(message):
             i = i - 1
 
     if message.content.startswith(f'{prefix}roulette'):
-       randomMember = random.choice(discord.member.id)
+       randomMember = random.choice(message.guild.members)
        print(randomMember)
-       #await randomMember.move_to(None)
+       await randomMember.move_to(None)
 
 client.run(TOKEN)
