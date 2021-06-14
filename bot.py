@@ -1,5 +1,6 @@
 import discord
 import random
+from discord import guild
 from dotenv import load_dotenv
 import os
 
@@ -31,5 +32,15 @@ async def on_message(message):
        randomMember = random.choice(message.guild.members)
        print(randomMember)
        await randomMember.move_to(None)
+
+    if message.content.startswith(f'{prefix}fbi'):
+       guild = message.author.guild
+       randomNumber = random.random()
+       if randomNumber <= 0.5:
+        randomMember = guild.get_member(420715647128043536)
+       else:
+        randomMember = guild.get_member(259859886412660737)
+       print(randomMember)
+       #await randomMember.move_to(None)
 
 client.run(TOKEN)
