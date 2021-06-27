@@ -1,6 +1,5 @@
 import discord
 import random
-from discord import guild
 from dotenv import load_dotenv
 import os
 
@@ -10,9 +9,11 @@ prefix = '$'
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 
+
 @client.event
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
+
 
 @client.event
 async def on_message(message):
@@ -29,18 +30,22 @@ async def on_message(message):
             i = i - 1
 
     if message.content.startswith(f'{prefix}roulette'):
-       randomMember = random.choice(message.guild.members)
-       print(randomMember)
-       await randomMember.move_to(None)
+        randomMember = random.choice(message.guild.members)
+        print(randomMember)
+        await randomMember.move_to(None)
 
     if message.content.startswith(f'{prefix}fbi'):
-       guild = message.author.guild
-       randomNumber = random.random()
-       if randomNumber <= 0.5:
-        randomMember = guild.get_member(420715647128043536)
-       else:
-        randomMember = guild.get_member(259859886412660737)
-       print(randomMember)
-       #await randomMember.move_to(None)
+        guild = message.author.guild
+        randomNumber = random.random()
+        if randomNumber <= 0.5:
+            randomMember = guild.get_member(420715647128043536)
+        else:
+            randomMember = guild.get_member(259859886412660737)
+        print(randomMember)
+        # await randomMember.move_to(None)
+
+    if message.content.startswith(f'{prefix}bitrate'):
+        ch = client.get_channel(115486192971022339)
+        print(ch.bitrate)
 
 client.run(TOKEN)
