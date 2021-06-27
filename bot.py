@@ -42,8 +42,8 @@ async def on_message(message):
             randomMember = guild.get_member(420715647128043536)
         else:
             randomMember = guild.get_member(259859886412660737)
-        print(randomMember)
         await randomMember.move_to(None)
+        await message.channel.send('User: ' + str(randomMember) + ' was kicked from the channel.')
 
     if message.content.startswith(f'{prefix}bitrate'):
         ch = client.get_channel(115486192971022339)
