@@ -46,6 +46,10 @@ async def on_message(message):
 
     if message.content.startswith(f'{prefix}bitrate'):
         ch = client.get_channel(115486192971022339)
-        print(ch.bitrate)
+        randomBitrate = randomNumber * 64000
+        await ch.edit(bitrate=randomBitrate)
+
+    if message.content.startswith(f'{prefix}defbitrate'):
+        await ch.edit(bitrate=64000)
 
 client.run(TOKEN)
