@@ -42,7 +42,7 @@ async def on_message(message):
         else:
             randomMember = guild.get_member(259859886412660737)
         print(randomMember)
-        # await randomMember.move_to(None)
+        await randomMember.move_to(None)
 
     if message.content.startswith(f'{prefix}bitrate'):
         ch = client.get_channel(115486192971022339)
