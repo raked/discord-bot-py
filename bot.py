@@ -34,6 +34,7 @@ async def on_message(message):
         randomMember = random.choice(message.guild.members)
         print(randomMember)
         await randomMember.move_to(None)
+        await message.channel.send('User: ' + str(randomMember) + ' was kicked from the channel.')
 
     if message.content.startswith(f'{prefix}fbi'):
         guild = message.author.guild
